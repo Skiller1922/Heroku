@@ -6,14 +6,14 @@ import {app, auth} from './firebase'
 import {useHistory, Link} from 'react-router-dom'
 import {createUserWithEmailAndPassword} from 'firebase/auth'
 import {useAuthValue} from './AuthContext'
-import {addDoc, collection, getFirestore, getDocs} from "firebase/firestore";
+import {addDoc, collection, getFirestore} from "firebase/firestore";
 //import firebase from "firebase/compat/app";
 
 
 function Register() {
 
   const [email, setEmail] = useState('')
-  const [takenUsernames, setTakenUsernames] = useState([])
+  //const [takenUsernames, setTakenUsernames] = useState([])
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
