@@ -2,9 +2,9 @@ import {useState} from 'react'
 
 import './forms.css'
 import {app, auth} from './firebase'
-import { doc, getDoc } from "firebase/firestore";
+//import { doc, getDoc } from "firebase/firestore";
 import {useHistory, Link} from 'react-router-dom'
-import {createUserWithEmailAndPassword, sendEmailVerification} from 'firebase/auth'
+import {createUserWithEmailAndPassword} from 'firebase/auth'
 import {useAuthValue} from './AuthContext'
 import {addDoc, collection, getFirestore, getDocs} from "firebase/firestore";
 //import firebase from "firebase/compat/app";
@@ -20,7 +20,7 @@ function Register() {
   const [error, setError] = useState('')
   const history = useHistory()
   const {setTimeActive} = useAuthValue()
-  const num = 1;
+  //const num = 1;
   const db = getFirestore(app);
 
 
@@ -39,53 +39,53 @@ function Register() {
   }
 
 
-  const validatePassword = () => {
-    let isValid = true
-    if (password !== '' && confirmPassword !== ''){
-      if (password !== confirmPassword) {
-        isValid = false
-        setError('Passwords does not match')
-      }
-    }
-    return isValid
-  }
+//   const validatePassword = () => {
+//     let isValid = true
+//     if (password !== '' && confirmPassword !== ''){
+//       if (password !== confirmPassword) {
+//         isValid = false
+//         setError('Passwords does not match')
+//       }
+//     }
+//     return isValid
+//   }
 
-  const fetchTakenData = async () => {
+//   const fetchTakenData = async () => {
 
-    let takenUsernamesAsync = []
+//     let takenUsernamesAsync = []
 
-    const querySnapshot = await getDocs(collection(db, "users"));
-    querySnapshot.forEach((doc) => {
+//     const querySnapshot = await getDocs(collection(db, "users"));
+//     querySnapshot.forEach((doc) => {
 
-      takenUsernamesAsync.push(doc.data()['username'])
-    });
-    setTakenUsernames(takenUsernamesAsync);
-
-
-
-  }
-
-  const validateUsername = (uName) => {
-    let isValid = true
-
-
-      console.log(takenUsernames)
-      for (let i = 0; i < takenUsernames.length; ++i)
-      {
-        if (uName === takenUsernames[i])
-        {
-          console.log("is equal")
-          isValid = false
-          setError('Username already taken')
-        }
-      }
-
-      console.log(isValid)
-      return isValid
+//       takenUsernamesAsync.push(doc.data()['username'])
+//     });
+//     setTakenUsernames(takenUsernamesAsync);
 
 
 
-  }
+//   }
+
+//   const validateUsername = (uName) => {
+//     let isValid = true
+
+
+//       console.log(takenUsernames)
+//       for (let i = 0; i < takenUsernames.length; ++i)
+//       {
+//         if (uName === takenUsernames[i])
+//         {
+//           console.log("is equal")
+//           isValid = false
+//           setError('Username already taken')
+//         }
+//       }
+
+//       console.log(isValid)
+//       return isValid
+
+
+
+//   }
 
 
 
