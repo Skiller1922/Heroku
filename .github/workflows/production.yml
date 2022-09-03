@@ -1,4 +1,4 @@
-name: Production workflow
+name: CI Production Workflow
 
 on:
   push:
